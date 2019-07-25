@@ -1,0 +1,28 @@
+html {  box-sizing: border-box;}
+*,*::before,*::after {  box-sizing: inherit;}
+
+@font-face{
+    font-family:"UntitledSansWeb-Regular";
+    src:url("./font/UntitledSansWeb-Regular.eot?#iefix");
+    src:url("./font/UntitledSansWeb-Regular.eot?#iefix") format("eot"),
+    url("./font/UntitledSansWeb-Regular.woff2") format("woff2"),
+    url("./font/UntitledSansWeb-Regular.woff") format("woff");
+}
+@font-face{
+    font-family:"SabonLTPro-Roman";
+    src:url("./font/SabonLTPro-Roman.eot?#iefix");
+    src:url("./font/SabonLTPro-Roman.eot?#iefix") format("eot"),
+    url("./font/SabonLTPro-Roman.woff2") format("woff2"),
+    url("./font/SabonLTPro-Roman.woff") format("woff");
+}
+
+body {
+  font-family: 'UntitledSansWeb-Regular', 'Helvetica Neue', 'Helvetica', sans-serif;
+  font-size: 45px;
+  font-weight: 400;
+}
+h1 {
+  // font-family: 'SabonLTPro-Roman', 'Times New Roman', serif;
+  font-style: italic;
+  font-weight: 400;
+}
