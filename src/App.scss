@@ -18,11 +18,36 @@ html {  box-sizing: border-box;}
 
 body {
   font-family: 'UntitledSansWeb-Regular', 'Helvetica Neue', 'Helvetica', sans-serif;
-  font-size: 45px;
+  font-size: 18px;
   font-weight: 400;
+  letter-spacing: -0.05em;
 }
-h1 {
-  // font-family: 'SabonLTPro-Roman', 'Times New Roman', serif;
-  font-style: italic;
-  font-weight: 400;
+
+$serif: 'SabonLTPro-Roman', 'Times New Roman', sans-serif;
+
+.serif {
+  font-family: $serif;
+}
+
+a {
+  text-decoration: none;
+  transition: color .2s ease;
+  color: inherit;
+  &:hover {
+    color: #00f;
+  }
+}
+header {
+  h1, a {
+    font-size: 1em;
+    margin: 0;
+    font-weight: 400;
+  }
+  h1 {
+    text-transform: uppercase;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 }

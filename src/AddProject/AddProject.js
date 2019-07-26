@@ -1,14 +1,21 @@
 import React from 'react'
 import PostApiService from '../services/post-api-services'
 import FileBase64 from 'react-file-base64';
+import {Editor, EditorState} from 'draft-js';
+import './AddProject.scss'
 
 
 export default class AddPost extends React.Component {
   state = {
-    post: {},
     uploadedFile: null,
-    post_type: 'Text',
-    error: null
+    error: null,
+    editorState: EditorState.createEmpty()
+  }
+
+  onChange = (editorState) => {
+    this.setState({
+      editorState
+    })
   }
 
   successfulSubmission = () => {
@@ -28,10 +35,11 @@ export default class AddPost extends React.Component {
   handleSubmit = ev => {
     ev.preventDefault()
     ev.persist()
-    const { title, description, url, github, tech_stack } = ev.target
+    const { title, project_name, description, url, github, tech_stack } = ev.target
     let newProject = {
       title: title.value,
       description: description.value,
+      project_name: project_name.value,
       url: url.value,
       github: github.value,
       tech_stack: tech_stack.value
@@ -45,13 +53,14 @@ export default class AddPost extends React.Component {
             error: res.error
           })
         }
-
         PostApiService.postImage({
-          post: this.state.uploadedFile
+          project_id: res.id,
+          images: this.state.uploadedFile
         })
 
 
         title.value = ''
+        project_name.value = ''
         description.value = ''
         tech_stack.value = ''
         url.value = ''
@@ -71,7 +80,6 @@ export default class AddPost extends React.Component {
 
 
   getFile(file){
-    debugger;
     this.setState({ uploadedFile: file })
   }
 
@@ -80,9 +88,9 @@ export default class AddPost extends React.Component {
   render() {
     return (
       <form
-        className='AddPostForm'
+        className='AddProjectForm'
         onSubmit={this.handleSubmit}
-        aria-label="Create new Post"
+        aria-label="Create new Project"
       >
       <div className='form-title'>
         <h2 className='form-title-header'>Create New Post</h2>
@@ -91,8 +99,10 @@ export default class AddPost extends React.Component {
         {this.generateMessage()}
       </div>
       <div className='form-fields' aria-label='Post Fields'>
-        <label htmlFor='title'>Post Title</label>
+        <label htmlFor='title'>Project Title</label>
         <input type='text' name='title' id='title' placeholder='Enter post title...'></input>
+          <label htmlFor='project_name'>Project shortname</label>
+          <input type='text' name='project_name' id='project_name' placeholder='shortname...'></input>
         <label htmlFor='url'>Live URL</label>
         <input type='url' name='url' id='url' placeholder='Live URL...'></input>
         <label htmlFor='github'>Github</label>
@@ -101,13 +111,15 @@ export default class AddPost extends React.Component {
         <input type='text' name='tech_stack' id='tech_stack' placeholder='Tech Stack...'></input>
 
         <label htmlFor='description'>Description</label>
-        <textarea
-          type='text'
-          id='description'
-          name='description'
-          placeholder="Enter project description"
-          aria-label="Project Description"
-          ></textarea>
+          <textarea
+            type='text'
+            id='description'
+            name='description'
+            placeholder="Enter project description"
+            aria-label="Project Description"
+            ></textarea>
+
+
 
         <label htmlFor='image'>Project Images</label>
         <FileBase64
@@ -118,7 +130,7 @@ export default class AddPost extends React.Component {
           aria-label='Select an image to upload'
           onDone={ this.getFile.bind(this) }
         />
-        
+
 
       </div>
       <button

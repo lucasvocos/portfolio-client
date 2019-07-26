@@ -7,15 +7,19 @@ import Header from './Header/Header'
 import About from './About/About'
 import ProjectList from './ProjectList/ProjectList'
 import LoginPage from './routes/LoginPage/LoginPage'
+import ProjectPage from './routes/ProjectPage/ProjectPage'
 import RegistrationPage from './routes/RegistrationPage/RegistrationPage'
+import ProjectsContext from './contexts/ProjectsContext'
 import AddProject from './AddProject/AddProject'
-
+import PrivateRoute from './Utils/PrivateRoute'
+import PublicOnlyRoute from './Utils/PublicOnlyRoute'
 import AuthApiService from './services/auth-api-service'
 import IdleService from './services/idle-service'
 import TokenService from './services/token-service'
 
 
 export default class App extends React.Component{
+  static contextValue = ProjectsContext
   state = {
     projects: [],
     images: []
@@ -109,23 +113,27 @@ export default class App extends React.Component{
   }
   render() {
     const { projects, images } = this.state
+    const contextValue = {
+      projects: this.state.projects,
+      images: this.state.images
+    }
     return (
     <>
     <Header/>
       <main>
         <Switch>
-          <Route
+          <PublicOnlyRoute
             exact
             path={'/login'}
             component={LoginPage}
             onLogin={this.login}
           />
-          <Route
+          <PublicOnlyRoute
             exact
             path={'/register'}
             component={RegistrationPage}
           />
-          <Route
+          <PrivateRoute
             exact
             path='/new-project'
             component={AddProject}
@@ -137,17 +145,28 @@ export default class App extends React.Component{
           />
 
 
+        <ProjectsContext.Provider
+          value={contextValue}>
           <Route
             exact
-            path={'/'}
+            path={'/projects'}
             component={ProjectList}
+            projects={projects}
+            images={images}
           />
-
-            <Route
-              exact
-              path={'/about'}
-              component={About}
-            />
+          <Route
+            exact
+            path={'/projects/:project_name'}
+            component={ProjectPage}
+            projects={projects}
+            images={images}
+          />
+          </ProjectsContext.Provider>
+          <Route
+            exact
+            path={'/about'}
+            component={About}
+          />
         </Switch>
       </main>
 

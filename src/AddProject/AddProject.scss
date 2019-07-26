@@ -1,0 +1,45 @@
+.AddProjectForm {
+  margin: 0 auto;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+
+  .form-title {
+    text-align: center;
+    h2  {
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+  }
+
+  .form-fields {
+    label,
+    input {
+      display: block;
+    }
+    label {
+      text-transform: uppercase;
+    }
+    input,
+    textarea {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 2.5rem;
+    }
+
+
+  }
+  button.form-submit {
+    background: #111;
+    padding: 25px;
+    border-radius: 0;
+    font-size: 1em;
+    color: white;
+    text-transform: uppercase;
+    transition: background .2s ease;
+    &:hover {
+      background: #00f;
+      cursor: pointer;
+    }
+  }
+}
