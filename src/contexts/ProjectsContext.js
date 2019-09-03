@@ -12,11 +12,15 @@ const ProjectsContext = React.createContext({
 export default ProjectsContext
 
 export class ProjectsListProvider extends Component {
-  state = {
-    projectsList: [],
-    imagesList: [],
-    error: null,
-  };
+  constructor(props){
+    super(props)
+    const state = {
+      projectsList: [],
+      imagesList: [],
+      error: null,
+    };
+  }
+
 
   setProjectsList = projectsList => {
     this.setState({ projectsList })
@@ -42,7 +46,8 @@ export class ProjectsListProvider extends Component {
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError,
-      setThingList: this.setThingList,
+      setProjectsList: this.setProjectsList,
+      setImagesList: this.setImagesList
     }
     return (
       <ProjectsListProvider.Provider value={value}>

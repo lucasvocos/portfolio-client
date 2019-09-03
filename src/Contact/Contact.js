@@ -1,11 +1,10 @@
 import React from 'react'
-import './About.scss'
 
-export default class About extends React.Component {
+export default class Contact extends React.Component {
   render() {
     return (
-      <aside className='about'>
-        <section className='about-lucas'>
+      <aside className='contact'>
+        <section className='contact-lucas'>
           <h2>About Me</h2>
         </section>
         <section className='tech'>

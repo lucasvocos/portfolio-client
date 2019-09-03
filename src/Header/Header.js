@@ -51,16 +51,10 @@ export default class Header extends React.Component {
           Lucas Vocos
           </Link>
         </h1>
-        <p>Full Stack Creative Developer</p>
         <Link
-          to='/projects'
+          to='/contact'
         >
-        Portfolio
-        </Link>
-        <Link
-          to='/about'
-        >
-        About
+        Contact
         </Link>
         {TokenService.hasAuthToken()
           ? this.renderLogoutLink()

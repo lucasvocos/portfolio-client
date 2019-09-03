@@ -13,6 +13,14 @@ const PostApiService = {
         : res.json()
     )
   },
+  getByName(project_name) {
+    return fetch(`${config.API_ENDPOINT}/projects/${project_name}`)
+      .then(res =>
+      (!res.ok)
+      ? res.json().then(e => Promise.reject(e))
+      : res.json()
+    )
+  },
   addPost(post){
     return fetch(`${config.API_ENDPOINT}/projects`, {
       method: 'POST',

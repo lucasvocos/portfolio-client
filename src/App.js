@@ -4,10 +4,11 @@ import { Route, Switch } from 'react-router-dom'
 import config from './config'
 import Intro from './Intro/Intro'
 import Header from './Header/Header'
-import About from './About/About'
+import Contact from './Contact/Contact'
 import ProjectList from './ProjectList/ProjectList'
 import LoginPage from './routes/LoginPage/LoginPage'
 import ProjectPage from './routes/ProjectPage/ProjectPage'
+import NotFound from './routes/NotFound/NotFound'
 import RegistrationPage from './routes/RegistrationPage/RegistrationPage'
 import ProjectsContext from './contexts/ProjectsContext'
 import AddProject from './AddProject/AddProject'
@@ -138,15 +139,20 @@ export default class App extends React.Component{
             path='/new-project'
             component={AddProject}
           />
-          <Route
-            exact
-            path={'/'}
-            component={Intro}
-          />
+
+
+
 
 
         <ProjectsContext.Provider
           value={contextValue}>
+          <Route
+            exact
+            path={'/'}
+            component={Intro}
+            projects={projects}
+            images={images}
+          />
           <Route
             exact
             path={'/projects'}
@@ -164,8 +170,11 @@ export default class App extends React.Component{
           </ProjectsContext.Provider>
           <Route
             exact
-            path={'/about'}
-            component={About}
+            path={'/contact'}
+            component={Contact}
+          />
+          <Route
+            component={NotFound}
           />
         </Switch>
       </main>

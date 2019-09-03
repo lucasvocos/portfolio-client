@@ -1,0 +1,62 @@
+.ProjectList {
+  header {
+    padding: 10px 20px;
+    background: white;
+    .project-title-text {
+      margin-right: 20px;
+      text-transform: uppercase;
+    }
+
+  }
+  .project-content {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    .project-description {
+      font-size: 1em;
+      .description {
+        margin-top: 0;
+      }
+    }
+
+
+  }
+  .slick-slider {
+    max-width: 100vw;
+    padding: 0 20px;
+    width: 100%;
+    .slick-prev,
+    .slick-next {
+      z-index: 2;
+      height: 100%;
+      width: 50%;
+      &:before {
+        content: '';
+      }
+    }
+    .slick-prev {
+      left: 0;
+      &:hover {
+        cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAcUlEQVR4Ae3YAQaAMACF4Y4TBJ0wFdBNQ6IDrKADhJmn72MA/I9k1tUCAKWU6TlrcvxrS45/zcnx+3P61PgjPX74Ubx48Wd6/Cj+G/FXTnwjAfEGBHxC+X8gI4xwmXOdNsKLhDchI2aPu41GLF0lAHAD4PqVXAE1tOAAAAAASUVORK5CYII=') 12 12, auto;
+
+      }
+    }
+    .slick-next {
+      right: 0;
+      &:hover {
+        cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAfklEQVR4Ae3YAQaAQBRF0ZYTBK3wS4gA0SJDogW8AOED9I2Xe1bwLsrMdAAAVJG0SArX8bte4TZ+VhZOAb2k4w8Rp3vEQMS3iLjcI0YiEiKIuEsj1E44BuQIAtoJPmLH3yjjGc9xmgsN43lW4WFL0uQ3PkdsfuNzxFo5HgCAB3w+lZeZRhGXAAAAAElFTkSuQmCC') 12 12, auto;
+      }
+
+    }
+  }
+  img {
+    max-width: 100vw;
+    width: 100%;
+  }
+
+
+
+
+}

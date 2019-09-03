@@ -1,6 +1,6 @@
 html {  box-sizing: border-box;}
 *,*::before,*::after {  box-sizing: inherit;}
-
+@import url("https://fast.fonts.net/lt/1.css?apiType=css&c=a37bf08a-586b-4f72-9291-4fd65d6f8dc4&fontids=5598816,5598837");
 @font-face{
     font-family:"UntitledSansWeb-Regular";
     src:url("./font/UntitledSansWeb-Regular.eot?#iefix");
@@ -9,11 +9,20 @@ html {  box-sizing: border-box;}
     url("./font/UntitledSansWeb-Regular.woff") format("woff");
 }
 @font-face{
-    font-family:"SabonLTPro-Roman";
-    src:url("./font/SabonLTPro-Roman.eot?#iefix");
-    src:url("./font/SabonLTPro-Roman.eot?#iefix") format("eot"),
-    url("./font/SabonLTPro-Roman.woff2") format("woff2"),
-    url("./font/SabonLTPro-Roman.woff") format("woff");
+    font-family:"Sabon LT W05 Regular";
+    src:url("./font/af54786b-04a2-4a8e-bb84-1cba0bef5e4d.eot?#iefix");
+    src:url("./font/af54786b-04a2-4a8e-bb84-1cba0bef5e4d.eot?#iefix") format("eot"),
+    url("./font/aa680bb7-9623-4e76-80a4-73974085a966.woff2") format("woff2"),
+    url("./font/45f9d631-b3e2-4863-b55f-6402a4227430.woff") format("woff"),
+    url("./font/48a81c65-a8bb-4d31-a9c1-dba0620b2c50.ttf") format("truetype");
+}
+@font-face{
+    font-family:"Sabon LT W05 Italic";
+    src:url("./font/a904890e-70f3-4910-8632-2835c25944cf.eot?#iefix");
+    src:url("./font/a904890e-70f3-4910-8632-2835c25944cf.eot?#iefix") format("eot"),
+    url("./font/f30a974d-aedc-4349-a10e-ca95aec35568.woff2") format("woff2"),
+    url("./font/51ff8434-8369-48f8-80a5-83c08b9e9427.woff") format("woff"),
+    url("./font/4318c8c4-489b-40b6-a984-45a862c647f7.ttf") format("truetype");
 }
 
 body {
@@ -21,12 +30,17 @@ body {
   font-size: 18px;
   font-weight: 400;
   letter-spacing: -0.05em;
+  margin: 0;
 }
 
-$serif: 'SabonLTPro-Roman', 'Times New Roman', sans-serif;
+$serif: 'Sabon LT W05 Regular', 'Times New Roman', sans-serif;
+$serifitalic: 'Sabon LT W05 Italic','Times New Roman', sans-serif;
 
 .serif {
   font-family: $serif;
+}
+.serifItalic {
+  font-family: $serifitalic;
 }
 
 a {

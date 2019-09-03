@@ -1,7 +1,7 @@
 import React from 'react'
 import PostApiService from '../services/post-api-services'
 import FileBase64 from 'react-file-base64';
-import {Editor, EditorState} from 'draft-js';
+import { Editor, EditorState} from 'draft-js';
 import './AddProject.scss'
 
 
@@ -35,14 +35,15 @@ export default class AddPost extends React.Component {
   handleSubmit = ev => {
     ev.preventDefault()
     ev.persist()
-    const { title, project_name, description, url, github, tech_stack } = ev.target
+    const { title, date, project_name, description, url, github, tech_stack } = ev.target
     let newProject = {
       title: title.value,
       description: description.value,
       project_name: project_name.value,
       url: url.value,
       github: github.value,
-      tech_stack: tech_stack.value
+      tech_stack: tech_stack.value,
+      date: date.value
     }
 
 
@@ -64,6 +65,7 @@ export default class AddPost extends React.Component {
         description.value = ''
         tech_stack.value = ''
         url.value = ''
+        date.value =
         github.value = ''
 
         setTimeout(() => {
@@ -84,7 +86,6 @@ export default class AddPost extends React.Component {
   }
 
 
-
   render() {
     return (
       <form
@@ -101,8 +102,10 @@ export default class AddPost extends React.Component {
       <div className='form-fields' aria-label='Post Fields'>
         <label htmlFor='title'>Project Title</label>
         <input type='text' name='title' id='title' placeholder='Enter post title...'></input>
-          <label htmlFor='project_name'>Project shortname</label>
-          <input type='text' name='project_name' id='project_name' placeholder='shortname...'></input>
+        <label htmlFor='date'>Project Date</label>
+        <input type='text' name='date' id='date' placeholder='Year...'></input>
+        <label htmlFor='project_name'>Project shortname</label>
+        <input type='text' name='project_name' id='project_name' placeholder='shortname...'></input>
         <label htmlFor='url'>Live URL</label>
         <input type='url' name='url' id='url' placeholder='Live URL...'></input>
         <label htmlFor='github'>Github</label>

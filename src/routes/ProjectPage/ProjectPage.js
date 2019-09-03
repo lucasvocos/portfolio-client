@@ -12,16 +12,22 @@ export default class ProjectPage extends Component {
 
 
   componentDidMount() {
-    // const name = this.props.match.params.project_name
-    // const proj = this.context.projects.find(project => project.project_name === name)
-    // const images = this.context.images.filter(image => image.project_id === proj.id)
-    // if (this.state.project !== proj) {
-    //   this.setState({
-    //     name: name,
-    //     project: proj,
-    //     images: images
-    //   });
-    // }
+
+    const name = this.props.match.params.project_name
+
+
+    if (this.context.projects.length > 0) {
+      debugger;
+      const proj = this.context.projects.find(project => project.project_name === name)
+      const images = this.context.images.filter(image => image.project_id === proj.id)
+        this.setState({
+          name: name,
+          project: proj,
+          images: images
+        });
+    } else {
+
+    }
 
 
 
@@ -72,7 +78,7 @@ export default class ProjectPage extends Component {
                 className='img'
                 key={img.id}
                 >
-                <img src={img.image}/>
+                <img src={img.image} alt={`${project.title} Screenshot`}/>
               </div>
             )
           })}
