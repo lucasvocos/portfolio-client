@@ -14,13 +14,13 @@ export default class Contact extends React.Component {
             <p className='serifItalic'>(Contact)</p>
             <ul className='contact-list'>
               <li>
-                <a href="https://github.com/lucasvocos">Github</a>
+                <a href="https://github.com/lucasvocos" target="_blank" rel="noopener noreferrer">Github</a>
               </li>
               <li>
-                <a href="https://www.linkedin.com/in/lucasvocos/">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/lucasvocos/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
               </li>
               <li>
-                <a href="https://www.instagram.com/lucasvocos/">@lucasvocos</a>
+                <a href="https://www.instagram.com/lucasvocos/" target="_blank" rel="noopener noreferrer">@lucasvocos</a>
               </li>
 
             </ul>

@@ -16,7 +16,7 @@ export default class RegistrationForm extends React.Component {
 
     this.setState({ error: null })
     AuthApiService.postUser({
-      user_name: user_name.value,
+      username: user_name.value,
       password: password.value
     })
       .then(user => {
