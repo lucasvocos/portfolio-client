@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import './ProjectList.scss'
 import ProjectsContext from '../contexts/ProjectsContext'
 import Slider from "react-slick";
@@ -25,6 +24,7 @@ export default class ProjectList extends React.Component {
      dots: false,
      infinite: true,
      speed: 500,
+     easing: 'easeInOutQuint',
      slidesToShow: 1,
      slidesToScroll: 1
    };
@@ -34,6 +34,11 @@ export default class ProjectList extends React.Component {
 
         {this.context.projects.map(project => {
           const images = this.context.images.filter(projPicture => projPicture.project_id === project.id)
+          images.sort((a, b) => {
+            if(a.name < b.name) { return -1; }
+            if(a.name > b.name) { return 1; }
+            return 0;
+          })
           return (
             <div
               className='project'

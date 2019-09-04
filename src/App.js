@@ -2,7 +2,6 @@ import React from 'react';
 import './App.scss';
 import { Route, Switch } from 'react-router-dom'
 import config from './config'
-// import Intro from './Intro/Intro'
 import Header from './Header/Header'
 import Contact from './Contact/Contact'
 import ProjectList from './ProjectList/ProjectList'
@@ -122,53 +121,49 @@ export default class App extends React.Component{
     <>
     <Header/>
       <main>
-        <Switch>
-          <PublicOnlyRoute
-            exact
-            path={'/login'}
-            component={LoginPage}
-            onLogin={this.login}
-          />
-          <PublicOnlyRoute
-            exact
-            path={'/register'}
-            component={RegistrationPage}
-          />
-          <PrivateRoute
-            exact
-            path='/new-project'
-            component={AddProject}
-          />
+          <ProjectsContext.Provider
+            value={contextValue}>
+            <Switch>
+            <PublicOnlyRoute
+              exact
+              path={'/login'}
+              component={LoginPage}
+              onLogin={this.login}
+            />
+            <PublicOnlyRoute
+              exact
+              path={'/register'}
+              component={RegistrationPage}
+            />
+            <PrivateRoute
+              exact
+              path={'/new-project'}
+              component={AddProject}
+            />
 
-
-
-
-
-        <ProjectsContext.Provider
-          value={contextValue}>
-
-          <Route
-            exact
-            path={'/'}
-            component={ProjectList}
-            projects={projects}
-            images={images}
-          />
-          <Route
-            exact
-            path={'/projects/:project_name'}
-            component={ProjectPage}
-            projects={projects}
-            images={images}
-          />
-          <Route
-            exact
-            path={'/contact'}
-            component={Contact}
-          />
+            <Route
+              exact
+              path={'/'}
+              component={ProjectList}
+              projects={projects}
+              images={images}
+            />
+            <Route
+              exact
+              path={'/projects/:project_name'}
+              component={ProjectPage}
+              projects={projects}
+              images={images}
+            />
+            <Route
+              exact
+              path={'/contact'}
+              component={Contact}
+            />
+            <Route
+              component={NotFound} />
+            </Switch>
           </ProjectsContext.Provider>
-
-        </Switch>
       </main>
 
     </>
