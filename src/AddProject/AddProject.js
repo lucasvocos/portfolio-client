@@ -1,7 +1,6 @@
 import React from 'react'
 import PostApiService from '../services/post-api-services'
 import FileBase64 from 'react-file-base64';
-import { Editor, EditorState} from 'draft-js';
 import './AddProject.scss'
 
 
@@ -9,14 +8,8 @@ export default class AddPost extends React.Component {
   state = {
     uploadedFile: null,
     error: null,
-    editorState: EditorState.createEmpty()
   }
 
-  onChange = (editorState) => {
-    this.setState({
-      editorState
-    })
-  }
 
   successfulSubmission = () => {
     const { location, history } = this.props

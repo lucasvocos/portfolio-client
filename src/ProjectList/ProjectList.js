@@ -34,7 +34,6 @@ export default class ProjectList extends React.Component {
 
         {this.context.projects.map(project => {
           const images = this.context.images.filter(projPicture => projPicture.project_id === project.id)
-          console.log(images);
           return (
             <div
               className='project'

@@ -12,14 +12,12 @@ const ProjectsContext = React.createContext({
 export default ProjectsContext
 
 export class ProjectsListProvider extends Component {
-  constructor(props){
-    super(props)
-    const state = {
+  state = {
       projectsList: [],
       imagesList: [],
       error: null,
-    };
-  }
+  };
+
 
 
   setProjectsList = projectsList => {

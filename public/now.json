@@ -1,7 +1,6 @@
 {
    "version": 2,
    "name": "lucasvocos-portfolio",
-   "alias": "lucasvocos-portfolio",
    "routes": [
        {
          "src": "^/static/(.*)",
