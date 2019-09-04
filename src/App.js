@@ -2,7 +2,7 @@ import React from 'react';
 import './App.scss';
 import { Route, Switch } from 'react-router-dom'
 import config from './config'
-import Intro from './Intro/Intro'
+// import Intro from './Intro/Intro'
 import Header from './Header/Header'
 import Contact from './Contact/Contact'
 import ProjectList from './ProjectList/ProjectList'
@@ -146,16 +146,10 @@ export default class App extends React.Component{
 
         <ProjectsContext.Provider
           value={contextValue}>
+
           <Route
             exact
             path={'/'}
-            component={Intro}
-            projects={projects}
-            images={images}
-          />
-          <Route
-            exact
-            path={'/projects'}
             component={ProjectList}
             projects={projects}
             images={images}
@@ -167,15 +161,13 @@ export default class App extends React.Component{
             projects={projects}
             images={images}
           />
-          </ProjectsContext.Provider>
           <Route
             exact
             path={'/contact'}
             component={Contact}
           />
-          <Route
-            component={NotFound}
-          />
+          </ProjectsContext.Provider>
+
         </Switch>
       </main>
 

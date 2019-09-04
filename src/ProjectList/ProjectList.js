@@ -54,23 +54,35 @@ export default class ProjectList extends React.Component {
             </header>
             <section className='project-content'>
               <aside className='project-description'>
-                <p className='description'>{project.description}</p>
-
-                <p className='detail-url'>Live Site: <span className='serifItalic'><a href={project.url} target="_blank" rel="noopener noreferrer">(Visit)</a></span></p>
-                <p className='detail-url'>GitHub: <span className='serifItalic'><a href={project.github} target="_blank" rel="noopener noreferrer">(Visit)</a></span></p>
-
+                <p className='description'><span className='serifItalic'>(Description)</span>{project.description}</p>
               </aside>
-              <aside className='tech-stack'>
-                <p className='tech-stack-heading'>Tech Stack:</p>
-                <ul className='tech-stack-list'>
-                  {techList = project.tech_stack.split(',').map(item => {
-                    return (
-                      <li key={item}>
-                        {item.trim()}
-                      </li>
-                    )
-                  })}
-                </ul>
+              <aside className='tech-stack-links'>
+                <div className='tech-stack'>
+                  <p className='tech-stack-heading serifItalic'>(Technology)</p>
+                  <ul className='tech-stack-list'>
+                    {techList = project.tech_stack.split(',').map(item => {
+                      return (
+                        <li key={item}>
+                          {item.trim()}
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </div>
+                <div className='links'>
+                  <p className='serifItalic'>(Links)</p>
+                  <ul className='links-list'>
+                    <li className='detail-url'>
+                      <a href={project.url} target="_blank" rel="noopener noreferrer">Visit Site</a>
+                    </li>
+                    <li className='detail-url'>
+                      <a href={project.github} target="_blank" rel="noopener noreferrer">View Github</a>
+                    </li>
+                  </ul>
+
+                </div>
+
+
               </aside>
 
             </section>

@@ -1,19 +1,36 @@
 import React from 'react'
+import './Contact.scss'
+import Image from './lucas.JPG'
 
 export default class Contact extends React.Component {
   render() {
     return (
-      <aside className='contact'>
-        <section className='contact-lucas'>
-          <h2>About Me</h2>
-        </section>
-        <section className='tech'>
-          <h2>Tech Stack</h2>
-        </section>
-        <section className='contact'>
-          <h2>Contact</h2>
-        </section>
-      </aside>
+      <>
+      <section className='intro'>
+        <div className='intro-text'>
+          <p>Lucas Vocos is a design-oriented full-stack Web Developer based in <span className='serif'>Detroit, Michigan.</span> His work includes designing and delivering elegent, well designed user-friendly solutions.</p>
+          <p>His tech stack includes: React, Node, Express, Javascript, Shopify Liquid, Sass, and PostgreSQL. His personal design & development practice is <a href='https://www.buena--suerte.com'>Buena Suerte</a></p>
+          <div className='contact'>
+            <p className='serifItalic'>(Contact)</p>
+            <ul className='contact-list'>
+              <li>
+                <a href="https://github.com/lucasvocos">Github</a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/lucasvocos/">LinkedIn</a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/lucasvocos/">@lucasvocos</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+        <div className='intro-image'>
+          <img src={Image} alt='Lucas Vocos' className='intro-image-img'/>
+        </div>
+      </section>
+      </>
     )
   }
 }
