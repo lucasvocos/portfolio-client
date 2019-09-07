@@ -21,10 +21,10 @@ export default class Contact extends React.Component {
                 <a href="https://www.linkedin.com/in/lucasvocos/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
               </li>
               <li>
-                <a href="https://www.instagram.com/lucasvocos/" target="_blank" rel="noopener noreferrer">@lucasvocos</a>
+                <a href="https://www.instagram.com/lucasvocos/" target="_blank" rel="noopener noreferrer">Instagram</a>
               </li>
               <li>
-                <a href="mailto:lucasvocos@gmail.com">lucasvocos@gmail.com</a>
+                <a href="mailto:lucasvocos@gmail.com">Email</a>
               </li>
 
             </ul>
