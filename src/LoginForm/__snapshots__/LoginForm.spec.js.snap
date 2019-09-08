@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginForm component renders a form.AllOtherRoute by default 1`] = `
+<form
+  aria-label="Login Form"
+  className="LoginForm"
+  onSubmit={[Function]}
+>
+  <div
+    role="alert"
+  />
+  <div
+    className="username"
+  >
+    <label
+      htmlFor="LoginForm_username"
+    >
+      User name
+    </label>
+    <input
+      aria-label="username field"
+      id="LoginForm_username"
+      name="username"
+      required={true}
+    />
+  </div>
+  <div
+    className="password"
+  >
+    <label
+      htmlFor="LoginForm_password"
+    >
+      Password
+    </label>
+    <input
+      aria-label="password field"
+      id="LoginForm_password"
+      name="password"
+      required={true}
+      type="password"
+    />
+  </div>
+  <button
+    type="submit"
+  >
+    Login
+  </button>
+</form>
+`;

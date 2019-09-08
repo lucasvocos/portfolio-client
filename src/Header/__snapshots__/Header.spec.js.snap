@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component renders a header by default 1`] = `
+<header
+  className="portfolio-header"
+>
+  <h1>
+    <Link
+      to="/"
+    >
+      Lucas Vocos
+    </Link>
+  </h1>
+  <Link
+    to="/contact"
+  >
+    Contact
+  </Link>
+</header>
+`;
