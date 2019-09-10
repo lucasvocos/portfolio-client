@@ -3,6 +3,9 @@ import './Contact.scss'
 import Image from './lucas.JPG'
 
 export default class Contact extends React.Component {
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
   render() {
     return (
       <>
@@ -19,9 +22,6 @@ export default class Contact extends React.Component {
               </li>
               <li>
                 <a href="https://www.linkedin.com/in/lucasvocos/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-              </li>
-              <li>
-                <a href="https://www.instagram.com/lucasvocos/" target="_blank" rel="noopener noreferrer">Instagram</a>
               </li>
               <li>
                 <a href="mailto:lucasvocos@gmail.com">Email</a>

@@ -15,7 +15,7 @@ export default class ProjectList extends React.Component {
   }
 
   componentDidMount() {
-
+    window.scrollTo(0, 0)
   }
 
   render() {
@@ -50,7 +50,7 @@ export default class ProjectList extends React.Component {
                key={project.id}
              >
 
-             <MediaQuery minWidth={768}>
+             <MediaQuery minWidth={769}>
                <Slider {...sliderSettings}>
                  {imageList = images.map(img => {
                    return (
