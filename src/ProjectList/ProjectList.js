@@ -1,126 +1,71 @@
 import React from 'react'
 import './ProjectList.scss'
 import ProjectsContext from '../contexts/ProjectsContext'
+import { Link } from 'react-router-dom'
 import Slider from "react-slick";
-import MediaQuery from 'react-responsive'
+
+import Masonry from 'react-masonry-css'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 
 export default class ProjectList extends React.Component {
   static contextType = ProjectsContext
-  state = {
-    projects: [],
-    images: []
-  }
+
 
   componentDidMount() {
     window.scrollTo(0, 0)
   }
 
   render() {
-    let techList
-    let imageList
-    let sliderSettings = {
-     dots: false,
-     infinite: true,
-     speed: 500,
-     easing: 'easeInOutQuint',
-     slidesToShow: 1,
-     slidesToScroll: 1
-   };
-   if (!this.state.projects) {
-     return (
-       <h1>Loading</h1>
-     )
-   } else {
-     return (
+    let projectList
+    if (this.context.projects.length > 0) {
+      projectList = this.context.projects.map(project => {
+        if (project.fields.archive === false) {
+          return (
+            <section className='project'>
+              <Link
+                to={`/work/${project.fields.slug}`}>
+                <img src={`https:${project.fields.cover.fields.file.url}`} alt={project.fields.title} className='project-preview'/>
+                <p className='project-title serif'>{project.fields.title}</p>
+              </Link>
+            </section>
+          )
+        } else {
+          return
+        }
+
+      })
+    } else {
+      projectList = (
+        <h1>Loading</h1>
+      )
+    }
+    const breakpointColumnsObj = {
+      default: 3,
+      1100: 3,
+      1024: 2,
+      768: 1
+    };
+
+    return (
 
        <main className='ProjectList' aria-label='Portfolio Projects'>
-         {this.context.projects.map(project => {
-           const images = this.context.images.filter(projPicture => projPicture.project_id === project.id)
-           images.sort((a, b) => {
-             if(a.name < b.name) { return -1; }
-             if(a.name > b.name) { return 1; }
-             return 0;
-           })
-           return (
-             <div
-               className='project'
-               key={project.id}
-             >
-
-             <MediaQuery minWidth={769}>
-               <Slider {...sliderSettings}>
-                 {imageList = images.map(img => {
-                   return (
-                     <img  className='project-image' src={img.image} key={img} alt={project.title}></img>
-                   )
-                 })}
-               </Slider>
-             </MediaQuery>
-             <MediaQuery maxWidth={768}>
-               <Slider {...{dots: true,
-               infinite: true,
-               speed: 500,
-               easing: 'easeInOutQuint',
-               slidesToShow: 1,
-               slidesToScroll: 1}}>
-                 {imageList = images.map(img => {
-                   return (
-                     <img  className='project-image' src={img.image} key={img} alt={project.title}></img>
-                   )
-                 })}
-               </Slider>
-             </MediaQuery>
-
-             <header className='project-title'>
-               <span className='project-title-text'>{project.title}</span>
-               <span className='project-year serif'>({project.date})</span>
-             </header>
-             <section className='project-content'>
-               <aside className='project-description'>
-                 <p className='description'><span className='serifItalic'>(Description)</span>{project.description}</p>
-               </aside>
-               <aside className='tech-stack-links'>
-                 <div className='tech-stack'>
-                   <p className='tech-stack-heading serifItalic'>(Technology)</p>
-                   <ul className='tech-stack-list'>
-                     {techList = project.tech_stack.split(',').map(item => {
-                       return (
-                         <li key={item}>
-                           {item.trim()}
-                         </li>
-                       )
-                     })}
-                   </ul>
-                 </div>
-                 <div className='links'>
-                   <p className='serifItalic'>(Links)</p>
-                   <ul className='links-list'>
-                     <li className='detail-url'>
-                       <a href={project.url} target="_blank" rel="noopener noreferrer">Visit Site</a>
-                     </li>
-                     <li className='detail-url'>
-                       <a href={project.github} target="_blank" rel="noopener noreferrer">View Github</a>
-                     </li>
-                   </ul>
-
-                 </div>
-
-
-               </aside>
-
-             </section>
-
-             </div>
-           )
-         })}
+         <div className='intro-paragraph serif'>
+           <p>Hello, I'm Lucas. I'm a design-oriented full-stack Web Developer based in Detroit, Michigan currently looking for opportunities. My work includes front and back end web development, Shopify-backed eCommerce shops, as well as user interface design.</p>
+           <p>Over the last few years, I've freelanced design/development under my personal practice (<a href='https://www.buena--suerte.com' target="_blank" rel='noreferrer noopener'>Buena Suerte</a>). When not programming, I like to make playlists, watch the Argentinean national futbol team and play (poorly) as a midfielder in pub leagues.</p>
+           <p>If you think I'd be a good fit for your team, please <Link to={'/contact'}>get in touch</Link> and we can chat.</p>
+         </div>
+         <Masonry
+          breakpointCols={breakpointColumnsObj}
+          className="projects"
+          columnClassName="projects-column">
+          {projectList}
+        </Masonry>
 
        </main>
 
      )
    }
 
-  }
 }

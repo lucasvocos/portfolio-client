@@ -1,15 +1,16 @@
 import React from 'react';
 import './App.scss';
-import { Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ProjectsContext from './contexts/ProjectsContext'
 import config from './config'
 import Header from './Header/Header'
 import Contact from './Contact/Contact'
 import ProjectList from './ProjectList/ProjectList'
+import ArchiveList from './ArchiveList/ArchiveList'
 import LoginPage from './routes/LoginPage/LoginPage'
 import ProjectPage from './routes/ProjectPage/ProjectPage'
 import NotFound from './routes/NotFound/NotFound'
 import RegistrationPage from './routes/RegistrationPage/RegistrationPage'
-import ProjectsContext from './contexts/ProjectsContext'
 import AddProject from './AddProject/AddProject'
 import PrivateRoute from './Utils/PrivateRoute'
 import PublicOnlyRoute from './Utils/PublicOnlyRoute'
@@ -19,31 +20,10 @@ import TokenService from './services/token-service'
 
 
 export default class App extends React.Component{
-  static contextValue = ProjectsContext
-  state = {
-    projects: [],
-    images: []
-  }
+  static contextType = ProjectsContext
 
   componentDidMount() {
-    const requestProjects = fetch(`${config.API_ENDPOINT}/projects`)
-      .then(res => {
-        return res.json()
-      })
-    const requestImages = fetch(`${config.API_ENDPOINT}/images`)
-      .then(res => {
-        return res.json()
-      })
-    Promise.all([
-      requestProjects,
-      requestImages
-    ])
-    .then(res => {
-      this.setState({
-        projects: res[0],
-        images: res[1]
-      })
-    })
+
 
     /*
       set the function (callback) to call when a user goes idle
@@ -70,6 +50,33 @@ export default class App extends React.Component{
         AuthApiService.postRefreshToken()
       })
     }
+
+    return fetch(`${config.API_ENDPOINT}`)
+      .then(res => {
+        return res.json()
+      })
+      .then(response => {
+
+        let projects = response.filter(project => project.fields.archive === false)
+        let archive = response.map(project => project.fields)
+        archive.sort((a, b) => {
+          if (a.year > b.year) {
+            return -1
+          }
+          if (a.year < b.year) {
+            return 1
+          }
+          if (a.title[0] > b.title[0]) {
+            return 1
+          }
+          if (a.title[0] < b.title[0]) {
+            return -1
+          }
+          return 0
+        })
+        this.context.setArchiveProjects(archive)
+        this.context.setProjects(projects)
+      })
 
   }
 
@@ -112,18 +119,12 @@ export default class App extends React.Component{
     this.forceUpdate()
   }
   render() {
-    const { projects, images } = this.state
-    const contextValue = {
-      projects: this.state.projects,
-      images: this.state.images
-    }
+
     return (
     <>
-    <Header/>
-      <main>
-          <ProjectsContext.Provider
-            value={contextValue}>
-            <Switch>
+      <Router>
+        <Header/>
+          <Switch>
             <PublicOnlyRoute
               exact
               path={'/login'}
@@ -145,15 +146,22 @@ export default class App extends React.Component{
               exact
               path={'/'}
               component={ProjectList}
-              projects={projects}
-              images={images}
             />
             <Route
               exact
-              path={'/projects/:project_name'}
+              path={'/work'}
+              component={ProjectList}
+            />
+            <Route
+              exact
+              path={'/archive'}
+              component={ArchiveList}
+            />
+            <Route
+              exact
+              path={'/work/:project_name'}
               component={ProjectPage}
-              projects={projects}
-              images={images}
+
             />
             <Route
               exact
@@ -162,9 +170,8 @@ export default class App extends React.Component{
             />
             <Route
               component={NotFound} />
-            </Switch>
-          </ProjectsContext.Provider>
-      </main>
+          </Switch>
+    </Router>
 
     </>
   );}

@@ -1,5 +1,11 @@
-html {  box-sizing: border-box;}
-*,*::before,*::after {  box-sizing: inherit;}
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {  
+  box-sizing: inherit;
+}
 @import url("https://fast.fonts.net/lt/1.css?apiType=css&c=a37bf08a-586b-4f72-9291-4fd65d6f8dc4&fontids=5598816,5598837");
 @font-face{
     font-family:"UntitledSansWeb-Regular";
@@ -7,6 +13,11 @@ html {  box-sizing: border-box;}
     src:url("./font/UntitledSansWeb-Regular.eot?#iefix") format("eot"),
     url("./font/UntitledSansWeb-Regular.woff2") format("woff2"),
     url("./font/UntitledSansWeb-Regular.woff") format("woff");
+}
+@font-face{
+    font-family:"FavoritBook";
+    src:url("./font/FavoritStd-Book.woff2") format("woff2"),
+    url("./font/FavoritStd-Book.woff") format("woff");
 }
 @font-face{
     font-family:"Sabon LT W05 Regular";
@@ -26,13 +37,23 @@ html {  box-sizing: border-box;}
 }
 
 body {
-  font-family: 'UntitledSansWeb-Regular', 'Helvetica Neue', 'Helvetica', sans-serif;
+  font-family: 'FavoritBook', 'UntitledSansWeb-Regular', 'Helvetica Neue', 'Helvetica', sans-serif;
   font-size: 18px;
-  font-weight: 400;
-  letter-spacing: -0.05em;
+  // letter-spacing: -0.0125em;
   margin: 0;
 }
-
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+img {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+}
 $serif: 'Sabon LT W05 Regular', 'Times New Roman', sans-serif;
 $serifitalic: 'Sabon LT W05 Italic','Times New Roman', sans-serif;
 

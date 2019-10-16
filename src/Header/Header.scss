@@ -4,14 +4,51 @@
     display: flex;
     justify-content: space-between;
     padding: 10px 20px;
-    background: white;
     z-index: 9999999;
     font-size: 1em;
-    text-transform: uppercase;
+    .mobile-menu-trigger {
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      font-size: 1em;
+      &:focus {
+        outline: none;
+      }
+    }
+    .mobile-menu {
+      position: fixed;
+
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      color: white;
+      background-color: #1a1a1a;
+      .mobile-menu-header {
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        button {
+          color: white;
+        }
+      }
+      .mobile-menu-links {
+        padding: 10px 20px;
+        text-transform: uppercase;
+        a {
+          display: block;
+        }
+      }
+    }
+
     @media (min-width: 768px) {
       padding: 10px 20px;
-      font-size: 2em;
-      height: 65px;
+      .links {
+        display: flex;
+        a {
+          padding-left: 15px;
+        }
+      }
     }
 
 }
