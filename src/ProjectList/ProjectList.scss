@@ -30,6 +30,21 @@
         img {
           padding-bottom: 10px;
         }
+
+        .video-react {
+          padding-top: 0 !important;
+          &:focus {
+            outline: none;
+          }
+          .video-react-big-play-button,
+          .video-react-control-bar {
+            display: none;
+          }
+          video {
+            max-width: 100%;
+            width: 100%;
+          }
+        }
         p {
           padding: 0 20px;
           @media (min-width: 1024px) {

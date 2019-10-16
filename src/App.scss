@@ -3,7 +3,7 @@ html {
 }
 *,
 *::before,
-*::after {  
+*::after {
   box-sizing: inherit;
 }
 @import url("https://fast.fonts.net/lt/1.css?apiType=css&c=a37bf08a-586b-4f72-9291-4fd65d6f8dc4&fontids=5598816,5598837");
@@ -85,4 +85,10 @@ header {
     color: inherit;
     text-decoration: none;
   }
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }

@@ -3,7 +3,7 @@ import './ProjectList.scss'
 import ProjectsContext from '../contexts/ProjectsContext'
 import { Link } from 'react-router-dom'
 import Slider from "react-slick";
-
+import { Player } from 'video-react';
 import Masonry from 'react-masonry-css'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -22,15 +22,34 @@ export default class ProjectList extends React.Component {
     if (this.context.projects.length > 0) {
       projectList = this.context.projects.map(project => {
         if (project.fields.archive === false) {
-          return (
-            <section className='project'>
-              <Link
-                to={`/work/${project.fields.slug}`}>
-                <img src={`https:${project.fields.cover.fields.file.url}`} alt={project.fields.title} className='project-preview'/>
-                <p className='project-title serif'>{project.fields.title}</p>
-              </Link>
-            </section>
-          )
+          if (project.fields.cover.fields.file.contentType === 'image/png' || project.fields.cover.fields.file.contentType === 'image/jpeg' || project.fields.cover.fields.file.contentType === 'image/gif') {
+            return (
+              <section className='project'>
+                <Link
+                  to={`/work/${project.fields.slug}`}>
+                  <img src={`https:${project.fields.cover.fields.file.url}`} alt={project.fields.title} className='project-preview'/>
+                  <p className='project-title serif'>{project.fields.title}</p>
+                </Link>
+              </section>
+            )
+          } else {
+            return (
+              <section className='project'>
+                <Link
+                  to={`/work/${project.fields.slug}`}>
+                  <Player
+                    playsInline
+                    muted={true}
+                    loop={true}
+                    autoPlay={true}
+                    src={project.fields.cover.fields.file.url}
+                    />
+                  <p className='project-title serif'>{project.fields.title}</p>
+                </Link>
+              </section>
+            )
+          }
+
         } else {
           return
         }
@@ -47,7 +66,7 @@ export default class ProjectList extends React.Component {
       1024: 2,
       768: 1
     };
-    
+
     return (
 
        <main className='ProjectList' aria-label='Portfolio Projects'>

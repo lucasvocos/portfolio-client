@@ -1,6 +1,7 @@
 import React from 'react'
 import './Contact.scss'
 import Image from './lucas.JPG'
+import { Link } from 'react-router-dom'
 
 export default class Contact extends React.Component {
   componentDidMount() {
@@ -23,8 +24,9 @@ export default class Contact extends React.Component {
         </section>
         <section className='resume'>
           <div className='about-paragraph'>
-            <p>Lucas Vocos is a design-oriented full-stack Web Developer based in Detroit, Michigan. His work includes designing and delivering elegent, well designed user-friendly solutions.</p>
-            <p>When not programming, Lucas likes to listen to music and play soccer</p>
+            <p>Hello, I'm Lucas. I'm a design-oriented full-stack Web Developer based in Detroit, Michigan currently looking for opportunities. My work includes front and back end web development, Shopify-backed eCommerce shops, as well as user interface design.</p>
+            <p>Over the last few years, I've freelanced design/development under my personal practice (<a href='https://www.buena--suerte.com' target="_blank" rel='noreferrer noopener'>Buena Suerte</a>). When not programming, I like to make playlists, watch the Argentinean national futbol team and play (poorly) as a midfielder in pub leagues.</p>
+            <p>If you think I'd be a good fit for your team, please <Link to={'/contact'}>get in touch.</Link></p>
           </div>
           <div className='professional list'>
             <h3>Professional</h3>

@@ -1,4 +1,15 @@
 .project-page {
+  .video-react {
+    padding-top: 0 !important;
+    video {
+      max-width: 100%;
+      width: 100%;
+    }
+    .video-react-control-bar,
+    .video-react-big-play-button {
+      display: none;
+    }
+  }
   .project-info {
     display: flex;
     flex-direction: column;
@@ -50,11 +61,11 @@
     }
     @media (min-width: 1024px) {
       .project-description {
-        padding-right: 30px;
+        padding-right: 15px;
         padding-bottom: 0;
       }
       .project-details {
-        padding-left: 30px;
+        padding-left: 15px;
       }
     }
   }
@@ -79,14 +90,15 @@
         display: block;
       }
 
+
+
+
       @media (min-width: 1024px) {
-        width: 50%;
-        &:nth-of-type(odd) {
-          padding-right: 15px;
+        width: calc(50% - 15px);
+        &.video {
+          width: 100%;
         }
-        &:nth-of-type(even) {
-          padding-left: 15px;
-        }
+
       }
     }
   }

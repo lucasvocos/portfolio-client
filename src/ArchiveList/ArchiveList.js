@@ -1,26 +1,33 @@
 import React from 'react'
 import ProjectsContext from '../contexts/ProjectsContext'
+import { Player } from 'video-react';
 import './ArchiveList.scss'
 
 
 export default class ArchiveList extends React.Component {
   static contextType = ProjectsContext
   state = {
-    previewImage: null
+    previewAsset: null
+  }
+  componentDidMount() {
+    window.scrollTo(0, 0)
   }
 
-  updateImage = (e) => {
+  updatePreview = (e) => {
     e.preventDefault()
-
-    let previewImage = this.context.archiveProjects.filter(proj => proj.title === e.currentTarget.dataset.id)
-
+    let previewAsset = this.context.archiveProjects.filter(proj => proj.title === e.currentTarget.dataset.id)
+    previewAsset = previewAsset[0]
     this.setState({
-      previewImage: `https:${previewImage[0].cover.fields.file.url}`
+      previewAsset
+    },
+    () => {
+      console.log(this.state.previewAsset.cover.fields.file.url);
     })
+
   }
-  clearImage = (e) => {
+  clearPreview = (e) => {
     this.setState({
-      previewImage: null
+      previewAsset: null
     })
   }
   render() {
@@ -33,7 +40,7 @@ export default class ArchiveList extends React.Component {
           )
         })
         return (
-          <tr className='archive-table-project' key={proj.title} onMouseEnter={this.updateImage} onMouseLeave={this.clearImage} data-id={proj.title}>
+          <tr className='archive-table-project' key={proj.title} onMouseEnter={this.updatePreview} onMouseLeave={this.clearPreview} data-id={proj.title}>
 
               <td>
                 <a href={proj.url} target={'_blank'} rel={'noreferrer noopener'}>
@@ -59,13 +66,34 @@ export default class ArchiveList extends React.Component {
       })
 
     }
+    let previewAsset
+    if (this.state.previewAsset) {
+      if (this.state.previewAsset.cover.fields.file.contentType === 'image/jpeg' || this.state.previewAsset.cover.fields.file.contentType === 'image/png' || this.state.previewAsset.cover.fields.file.contentType === 'image/gif') {
+        previewAsset = (<img src={`https:${this.state.previewAsset.cover.fields.file.url}`} className={'preview-img'} alt={'Project Preview'}/>)
+      } else {
+        previewAsset = (
+          <Player
+            playsInline
+            muted={true}
+            loop={true}
+            autoPlay={true}
+            className={'preview-video'}
+            src={this.state.previewAsset.cover.fields.file.url}
+            />
+        )
+      }
+    }
   return  (
       <main className='archive-list'>
         <h2>Archive</h2>
         <div id={'preview'}>
-          {this.state.previewImage
-          ? (<img src={this.state.previewImage} className={'preview-img'} alt={'Project Preview'}/>)
-          : ""}
+          {this.state.previewAsset
+          ? (
+            <>
+            {previewAsset}
+            </>
+          )
+          : ''}
         </div>
         <table className='archive-table'>
           <thead>
