@@ -47,15 +47,20 @@ export default class ProjectList extends React.Component {
       1024: 2,
       768: 1
     };
-
+    
     return (
 
        <main className='ProjectList' aria-label='Portfolio Projects'>
-         <div className='intro-paragraph serif'>
-           <p>Hello, I'm Lucas. I'm a design-oriented full-stack Web Developer based in Detroit, Michigan currently looking for opportunities. My work includes front and back end web development, Shopify-backed eCommerce shops, as well as user interface design.</p>
-           <p>Over the last few years, I've freelanced design/development under my personal practice (<a href='https://www.buena--suerte.com' target="_blank" rel='noreferrer noopener'>Buena Suerte</a>). When not programming, I like to make playlists, watch the Argentinean national futbol team and play (poorly) as a midfielder in pub leagues.</p>
-           <p>If you think I'd be a good fit for your team, please <Link to={'/contact'}>get in touch</Link> and we can chat.</p>
-         </div>
+         {this.props.location.pathname !== '/work'
+          ? (
+            <div className='intro-paragraph serif'>
+              <p>Hello, I'm Lucas. I'm a design-oriented full-stack Web Developer based in Detroit, Michigan currently looking for opportunities. My work includes front and back end web development, Shopify-backed eCommerce shops, as well as user interface design.</p>
+              <p>Over the last few years, I've freelanced design/development under my personal practice (<a href='https://www.buena--suerte.com' target="_blank" rel='noreferrer noopener'>Buena Suerte</a>). When not programming, I like to make playlists, watch the Argentinean national futbol team and play (poorly) as a midfielder in pub leagues.</p>
+              <p>If you think I'd be a good fit for your team, please <Link to={'/contact'}>get in touch</Link> and we can chat.</p>
+            </div>
+          )
+          : ''}
+
          <Masonry
           breakpointCols={breakpointColumnsObj}
           className="projects"

@@ -97,7 +97,7 @@ export default class Header extends React.Component {
             <nav className='mobile-menu-links'>
               <Link
                 onClick={this.closeMenu}
-                to={`/`}>
+                to={`/work`}>
                 Work
               </Link>
               <Link

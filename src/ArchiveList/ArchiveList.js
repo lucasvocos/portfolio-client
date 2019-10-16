@@ -57,7 +57,7 @@ export default class ArchiveList extends React.Component {
           </tr>
         )
       })
-      
+
     }
   return  (
       <main className='archive-list'>
@@ -70,9 +70,9 @@ export default class ArchiveList extends React.Component {
         <table className='archive-table'>
           <thead>
             <tr className='archive-table-title'>
-              <th>Technology</th>
-              <th>Client</th>
-              <th>Year</th>
+              <th className='tech-header'>Technology</th>
+              <th className='client-header'>Client</th>
+              <th className='year-header'>Year</th>
             </tr>
           </thead>
           <tbody>

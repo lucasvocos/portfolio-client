@@ -16,7 +16,12 @@
     tr.archive-table-title {
       th {
         text-align: left;
-        // text-transform: uppercase;
+        &.tech-header {
+          width: 50%;
+        }
+        &.client-header {
+          width: 35%;
+        }
       }
     }
     tr.archive-table-project{
@@ -31,7 +36,10 @@
         }
       }
       td {
-        padding: 10px 0;
+        padding: 10px 10px 10px 0;
+        @media (min-width: 1024px) {
+          padding: 10px 0;
+        }
       }
       .tech-stack {
         margin: 0;
