@@ -1,35 +1,39 @@
 import React, { Component } from 'react'
 
 const ProjectsContext = React.createContext({
-  projectList: [],
-  imagesList: [],
+  projects: [],
+  archiveProjects: [],
   error: null,
+  darkMode: false,
   setError: () => {},
   clearError: () => {},
-  setProjectsList: () => {},
-  setImagesList: () => {}
+  setProjects: () => {},
+  setArchiveProjects: () => {}
 })
 export default ProjectsContext
 
-export class ProjectsListProvider extends Component {
+export class ProjectsProvider extends Component {
   constructor(props) {
     super(props);
     const state = {
-        projectsList: [],
-        imagesList: [],
+        projects: [],
+        darkMode: false,
         error: null,
     };
     this.state = state
   }
 
 
-
-  setProjectsList = projectsList => {
-    this.setState({ projectsList })
+  setProjects = projects => {
+    this.setState({ projects })
   }
 
-  setImagesList = imagesList => {
-    this.setState({ imagesList })
+  setArchiveProjects = archiveProjects => {
+    this.setState({ archiveProjects})
+  }
+
+  setDarkMode = boolean => {
+    this.setState({ darkMode: boolean })
   }
 
   setError = error => {
@@ -43,18 +47,22 @@ export class ProjectsListProvider extends Component {
 
   render() {
     const value = {
-      projectsList: this.state.projectsList,
-      imagesList: this.state.imagesList,
+      // values
+      projects: this.state.projects,
+      archiveProjects: this.state.archiveProjects,
+      darkMode: this.state.darkMode,
       error: this.state.error,
+      // methods
       setError: this.setError,
       clearError: this.clearError,
-      setProjectsList: this.setProjectsList,
-      setImagesList: this.setImagesList
+      setProjects: this.setProjects,
+      setArchiveProjects: this.setArchiveProjects,
+      setDarkMode: this.setDarkMode
     }
     return (
-      <ProjectsListProvider.Provider value={value}>
+      <ProjectsContext.Provider value={value}>
         {this.props.children}
-      </ProjectsListProvider.Provider>
+      </ProjectsContext.Provider>
     )
   }
 }

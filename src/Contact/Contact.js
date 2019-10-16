@@ -8,33 +8,54 @@ export default class Contact extends React.Component {
   }
   render() {
     return (
-      <>
-      <section className='intro'>
-        <div className='intro-text'>
-          <p>Lucas Vocos is a design-oriented full-stack Web Developer based in <span className='serif'>Detroit, Michigan.</span> His work includes designing and delivering elegent, well designed user-friendly solutions.</p>
-          <p>His tech stack includes: React, Node, Express, Javascript, Shopify Liquid, Sass, and PostgreSQL. His personal design & development practice is <a href='https://www.buena--suerte.com'>Buena Suerte</a></p>
-          <p>When not programming, Lucas likes to listen to music and play soccer</p>
-          <div className='contact'>
-            <p className='serifItalic'>(Contact)</p>
-            <ul className='contact-list'>
-              <li>
-                <a href="https://github.com/lucasvocos" target="_blank" rel="noopener noreferrer">Github</a>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/in/lucasvocos/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-              </li>
-              <li>
-                <a href="mailto:lucasvocos@gmail.com" target="_blank" rel="noopener noreferrer">Email</a>
-              </li>
 
+
+
+      <main className='contact' aria-label="Contact Page">
+        <section className='contact-details'>
+          <h3>Lucas Vocos</h3>
+          <p>Detroit, MI</p>
+          <p><a href={`mailto:hello@lucasvocos.com`}>hello@lucasvocos.com</a> </p>
+          <p><a href={`tel:12134228271`}>+1 (213) 422 8271</a></p>
+          <p><a href="https://github.com/lucasvocos" target="_blank" rel="noopener noreferrer">Github</a></p>
+          <p><a href="https://www.linkedin.com/in/lucasvocos/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+          <img src={Image} alt='Lucas Vocos' className='about-image-img'/>
+        </section>
+        <section className='resume'>
+          <div className='about-paragraph'>
+            <p>Lucas Vocos is a design-oriented full-stack Web Developer based in Detroit, Michigan. His work includes designing and delivering elegent, well designed user-friendly solutions.</p>
+            <p>When not programming, Lucas likes to listen to music and play soccer</p>
+          </div>
+          <div className='professional list'>
+            <h3>Professional</h3>
+            <ul className='work'>
+              <li><div className='year'>2016 - Present</div> Freelance Designer / Developer, Buena Suerte Studio</li>
+              <li><div className='year'>2013 - 2019</div> Director of Product Support, Brand Networks</li>
+              <li><div className='year'>2008 - 2013</div> Mac Genius, Apple</li>
             </ul>
           </div>
-        </div>
-        <div className='intro-image'>
-          <img src={Image} alt='Lucas Vocos' className='intro-image-img'/>
-        </div>
-      </section>
-      </>
+          <div className='education list'>
+            <h3>Education</h3>
+            <ul className='ed'>
+              <li><div className='year'>2019</div> Full-Stack Engineering Immersion, Thinkful</li>
+            </ul>
+          </div>
+          <div className='technology'>
+            <h3>Tech Stack</h3>
+            <ul className='tech-stack'>
+              <li>React</li>
+              <li>React Native</li>
+              <li>Node</li>
+              <li>Express</li>
+              <li>Javascript</li>
+              <li>Shopify Liquid</li>
+              <li>Sass</li>
+              <li>PostgreSQL Database</li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
     )
   }
 }

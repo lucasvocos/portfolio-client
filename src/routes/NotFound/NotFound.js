@@ -5,7 +5,7 @@ import './NotFound.scss'
 class NotFoundRoute extends React.Component {
   render() {
     return (
-      <section>
+      <section className='not-found'>
         <h2>404 — Sorry, this page isn't found</h2>
         <Link
           className='serif'
