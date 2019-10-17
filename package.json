@@ -14,7 +14,8 @@
     "react-masonry-css": "^1.0.13",
     "react-responsive": "^8.0.1",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "video-react": "^0.14.1"
   },
   "scripts": {
     "start": "react-scripts start",
