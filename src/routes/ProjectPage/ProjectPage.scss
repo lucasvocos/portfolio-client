@@ -58,6 +58,12 @@
     }
     .project-description {
       padding-bottom: 25px;
+      p {
+        margin-bottom: 0.5rem;
+      }
+      a {
+        text-decoration: underline;
+      }
     }
     @media (min-width: 1024px) {
       .project-description {

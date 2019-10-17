@@ -7,11 +7,11 @@ html {
   box-sizing: inherit;
 }
 ::selection {
-  background: #1A1A1A;
+  background: #000FFF;
   color: white; /* WebKit/Blink Browsers */
 }
 ::-moz-selection {
-  background: #1A1A1A;
+  background: #000FFF;
   color: white; /* Gecko Browsers */
 }
 @import url("https://fast.fonts.net/lt/1.css?apiType=css&c=a37bf08a-586b-4f72-9291-4fd65d6f8dc4&fontids=5598816,5598837");
@@ -47,7 +47,7 @@ html {
 body {
   font-family: 'FavoritBook', 'UntitledSansWeb-Regular', 'Helvetica Neue', 'Helvetica', sans-serif;
   font-size: 18px;
-  // letter-spacing: -0.0125em;
+  letter-spacing: -0.0125em;
   margin: 0;
 }
 h1,

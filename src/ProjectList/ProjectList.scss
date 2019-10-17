@@ -19,10 +19,19 @@
     width: auto;
 
     .projects-column {
-      padding-left: 30px;
+      @media (min-width: 1024px) {
+        padding: 0 7.5px;
+      }
       background-clip: padding-box;
       &:first-of-type {
         padding-left: 0;
+        @media (min-width: 1024px) {
+          padding-right: 15px;
+        }
+      }
+      &:nth-of-type(3) {
+        padding-right: 0;
+        padding-left: 15px;
       }
       .project {
         margin-bottom: 30px;

@@ -2,7 +2,6 @@ import React from 'react'
 import './ProjectList.scss'
 import ProjectsContext from '../contexts/ProjectsContext'
 import { Link } from 'react-router-dom'
-import Slider from "react-slick";
 import { Player } from 'video-react';
 import Masonry from 'react-masonry-css'
 import "slick-carousel/slick/slick.css";
@@ -24,7 +23,7 @@ export default class ProjectList extends React.Component {
         if (project.fields.archive === false) {
           if (project.fields.cover.fields.file.contentType === 'image/png' || project.fields.cover.fields.file.contentType === 'image/jpeg' || project.fields.cover.fields.file.contentType === 'image/gif') {
             return (
-              <section className='project'>
+              <section className='project' key={project.fields.slug}>
                 <Link
                   to={`/work/${project.fields.slug}`}>
                   <img src={`https:${project.fields.cover.fields.file.url}`} alt={project.fields.title} className='project-preview'/>

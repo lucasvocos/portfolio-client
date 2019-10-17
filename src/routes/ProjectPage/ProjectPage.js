@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import ProjectsContext from '../../contexts/ProjectsContext'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import Masonry from 'react-masonry-css'
 import Plyr from 'plyr';
 import { Player } from 'video-react';
 import './ProjectPage.scss'
-const players = Array.from(document.querySelectorAll('.player')).map(p => new Plyr(p));
 
 
 export default class ProjectPage extends Component {
@@ -81,7 +79,9 @@ export default class ProjectPage extends Component {
 
         if (asset.fields.file.contentType === 'image/png' || (asset.fields.file.contentType === 'image/jpeg' || asset.fields.file.contentType === 'image/gif')) {
           return (
-            <li className='project-asset img'><img src={`http:${asset.fields.file.url}`} alt={this.state.project.title} className='asset img' key={asset.fields.file.url}/></li>
+            <li className='project-asset img' key={asset.fields.file.url}>
+              <img src={`http:${asset.fields.file.url}`} alt={this.state.project.title} className='asset img' />
+            </li>
           )
         } else {
           return (
