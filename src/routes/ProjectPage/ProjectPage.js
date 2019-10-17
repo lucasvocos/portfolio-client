@@ -2,7 +2,11 @@ import React, { Component } from 'react'
 import ProjectsContext from '../../contexts/ProjectsContext'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Masonry from 'react-masonry-css'
+import Plyr from 'plyr';
+import { Player } from 'video-react';
 import './ProjectPage.scss'
+const players = Array.from(document.querySelectorAll('.player')).map(p => new Plyr(p));
+
 
 export default class ProjectPage extends Component {
   static contextType = ProjectsContext
@@ -13,6 +17,7 @@ export default class ProjectPage extends Component {
 
 
   componentDidMount() {
+    window.scrollTo(0,0)
     let name = this.props.match.params.project_name
     let proj = this.context.projects.find(project => project.fields.slug === name)
     if (proj && proj.fields) {
@@ -73,20 +78,57 @@ export default class ProjectPage extends Component {
     let assetsList
     if (this.state.project && this.state.project.assets) {
       assetsList = this.state.project.assets.map(asset => {
-        if (asset.fields.file.contentType === 'image/png' || asset.fields.file.contentType === 'image/jpeg') {
+
+        if (asset.fields.file.contentType === 'image/png' || (asset.fields.file.contentType === 'image/jpeg' || asset.fields.file.contentType === 'image/gif')) {
           return (
-            <li className='project-asset'><img src={`http:${asset.fields.file.url}`} alt={this.state.project.title} className='asset img' key={asset.fields.file.url}/></li>
+            <li className='project-asset img'><img src={`http:${asset.fields.file.url}`} alt={this.state.project.title} className='asset img' key={asset.fields.file.url}/></li>
           )
         } else {
-          return
+          return (
+              <li className='project-asset video'>
+                <Player
+                  playsInline
+                  muted={true}
+                  loop={true}
+                  autoPlay={true}
+                  src={asset.fields.file.url}
+                  />
+              </li>
+
+          )
         }
       })
+    }
+    let cover
+    if (this.state.project && this.state.project.cover) {
+      if (this.state.project.cover.fields.file.contentType === 'image/png' || this.state.project.cover.fields.file.contentType === 'image/jpeg' || this.state.project.cover.fields.file.contentType === 'image/gif') {
+        cover = (
+          <div className='cover-asset img'><img src={`http:${this.state.project.cover.fields.file.url}`} alt={this.state.project.title} className='asset img' key={this.state.project.cover.fields.file.url}/></div>
+        )
+      } else {
+        cover = (
+            <div className='cover-asset video'>
+              <Player
+                playsInline
+                muted={true}
+                loop={true}
+                autoPlay={true}
+                src={this.state.project.cover.fields.file.url}
+                />
+            </div>
+
+        )
+      }
     }
     return (
       <main className='project-page'>
 
         {this.state.project && this.state.project.hasOwnProperty('cover')
-        ? (<img src={`https:${this.state.project.cover.fields.file.url}`} className='project-cover' alt={this.state.project.title}/>)
+        ? (
+          <>
+          {cover}
+          </>
+        )
         : ''
         }
 

@@ -1,0 +1,36 @@
+.site-footer {
+  padding: 10px 20px;
+  margin-top: auto;
+  .footer-navigation {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .footer-title {
+      font-weight: 500;
+      font-size: 1em;
+      padding-bottom: .5em;
+    }
+    .footer-links {
+      a {
+        display: block;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      flex-direction: row;
+      .footer-title {
+        padding: 0;
+      }
+      .footer-links {
+        width: 50%;
+        padding-left: 15px;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+  small {
+    font-size: .66em;
+  }
+}

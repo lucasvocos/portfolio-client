@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ProjectsContext from './contexts/ProjectsContext'
 import config from './config'
 import Header from './Header/Header'
+import Footer from './Footer/Footer'
 import Contact from './Contact/Contact'
 import ProjectList from './ProjectList/ProjectList'
 import ArchiveList from './ArchiveList/ArchiveList'
@@ -171,6 +172,7 @@ export default class App extends React.Component{
             <Route
               component={NotFound} />
           </Switch>
+        <Footer/>
     </Router>
 
     </>
