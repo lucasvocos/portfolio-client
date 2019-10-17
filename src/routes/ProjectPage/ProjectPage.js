@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import ProjectsContext from '../../contexts/ProjectsContext'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import Plyr from 'plyr';
 import { Player } from 'video-react';
 import './ProjectPage.scss'
 

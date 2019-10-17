@@ -5,22 +5,16 @@
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^13.4.0",
     "@contentful/rich-text-react-renderer": "^13.4.0",
-    "draft-js": "^0.11.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.4.0",
-    "jwt-decode": "^2.2.0",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-file-base64": "^1.0.3",
     "react-masonry-css": "^1.0.13",
     "react-responsive": "^8.0.1",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1",
-    "react-slick": "^0.25.2",
-    "slick-carousel": "^1.8.1",
-    "video-react": "^0.14.1"
+    "react-scripts": "3.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

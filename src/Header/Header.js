@@ -68,7 +68,7 @@ export default class Header extends React.Component {
           <nav className='links'>
             <Link
               to={`/work`}>
-              Work
+              Featured
             </Link>
             <Link
               to={`/archive`}>
@@ -98,7 +98,7 @@ export default class Header extends React.Component {
               <Link
                 onClick={this.closeMenu}
                 to={`/work`}>
-                Work
+                Featured
               </Link>
               <Link
                 onClick={this.closeMenu}
