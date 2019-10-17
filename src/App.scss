@@ -6,6 +6,14 @@ html {
 *::after {
   box-sizing: inherit;
 }
+::selection {
+  background: #1A1A1A;
+  color: white; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #1A1A1A;
+  color: white; /* Gecko Browsers */
+}
 @import url("https://fast.fonts.net/lt/1.css?apiType=css&c=a37bf08a-586b-4f72-9291-4fd65d6f8dc4&fontids=5598816,5598837");
 @font-face{
     font-family:"UntitledSansWeb-Regular";
@@ -78,9 +86,7 @@ header {
     margin: 0;
     font-weight: 400;
   }
-  h1 {
-    text-transform: uppercase;
-  }
+
   a {
     color: inherit;
     text-decoration: none;
