@@ -1,6 +1,6 @@
 {
   "name": "lucasvocos",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^13.4.0",
