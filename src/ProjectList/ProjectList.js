@@ -4,8 +4,6 @@ import ProjectsContext from '../contexts/ProjectsContext'
 import { Link } from 'react-router-dom'
 import { Player } from 'video-react';
 import Masonry from 'react-masonry-css'
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 
 export default class ProjectList extends React.Component {
