@@ -36,6 +36,14 @@ export default class Contact extends React.Component {
               <li><div className='year'>2008 - 2013</div> Mac Genius, Apple</li>
             </ul>
           </div>
+          <div className='press list'>
+            <h3>Press</h3>
+            <ul className='work'>
+              <li><a href="https://www.fastcompany.com/90435036/this-site-generates-trump-notes-so-you-can-look-like-a-very-stable-genius-too" target="_blank" rel='noreferrer noopener'>Fast Company</a></li>
+              <li><a href='https://www.itsnicethat.com/news/quid-pro-sans-rick-banks-jkr-trump-typeface-graphic-design-261119' target='_blank' rel='noopener noreferrer'>It's Nice That</a></li>
+              <li><a href='https://lifehacker.com/write-a-note-in-trumps-handwriting-with-this-font-gener-1840035875' target='_blank' rel='noreferrer noopener'>Lifehacker</a></li>
+            </ul>
+          </div>
           <div className='education list'>
             <h3>Education</h3>
             <ul className='ed'>
