@@ -1,37 +1,33 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Contact.scss'
 import Image from './lucas.JPG'
 import { Link } from 'react-router-dom'
 
-export default class Contact extends React.Component {
-  componentDidMount() {
+const Contact = () => {
+  useEffect(() => {
     window.scrollTo(0, 0)
-  }
-  render() {
-    return (
+  }, [])
 
-
-
-      <main className='contact' aria-label="Contact Page">
+  return (
+<main className='contact' aria-label="Contact Page">
         <section className='contact-details'>
-          <h3>Lucas Vocos</h3>
-          <p>Detroit, MI</p>
-          <p><a href={`mailto:hello@lucasvocos.com`}>hello@lucasvocos.com</a> </p>
-          <p><a href={`tel:12134228271`}>+1 (213) 422 8271</a></p>
-          <p><a href="https://github.com/lucasvocos" target="_blank" rel="noopener noreferrer">Github</a></p>
-          <p><a href="https://www.linkedin.com/in/lucasvocos/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
-          <img src={Image} alt='Lucas Vocos' className='about-image-img'/>
+          <aside className='contact-links'>
+            <p><a href={`tel:12134228271`}>+1 (213) 422 8271</a></p>
+            <p><a href={`mailto:hello@lucasvocos.com`}>hello@lucasvocos.com</a> </p>
+            <p><a href="https://github.com/lucasvocos" target="_blank" rel="noopener noreferrer">https://github.com/lucasvocos</a></p>
+            <p><a href="https://www.linkedin.com/in/lucasvocos/" target="_blank" rel="noopener noreferrer">https://www.linkedin.com/in/lucasvocos/</a></p>
+            <p><a href="https://www.instagram.com/lucasvocos/" target="_blank" rel="noopener noreferrer">https://www.instagram.com/lucasvocos/</a></p>
+          </aside>
+          <aside className='contact-img'>
+            <img src={Image} alt='Lucas Vocos' className='about-image-img'/>
+          </aside>
+          
         </section>
         <section className='resume'>
-          <div className='about-paragraph'>
-            <p>Hello, I'm Lucas. I'm a design-oriented full-stack Web Developer based in Detroit, Michigan currently looking for opportunities. My work includes front and back end web development, Shopify-backed eCommerce shops, as well as user interface design.</p>
-            <p>Over the last few years, I've freelanced design/development under my personal practice (<a href='https://www.buena--suerte.com' target="_blank" rel='noreferrer noopener'>Buena Suerte</a>). When not programming, I like to make playlists, watch the Argentinean national futbol team and play (poorly) as a midfielder in pub leagues.</p>
-            <p>If you think I'd be a good fit for your team, please <Link to={'/contact'}>get in touch.</Link></p>
-          </div>
           <div className='professional list'>
             <h3>Professional</h3>
             <ul className='work'>
-              <li><div className='year'>2016 - Present</div> Freelance Designer / Developer, Buena Suerte Studio</li>
+              <li><div className='year'>2018 - Present</div> Freelance Designer / Developer, Buena Suerte Studio</li>
               <li><div className='year'>2013 - 2019</div> Director of Product Support, Brand Networks</li>
               <li><div className='year'>2008 - 2013</div> Mac Genius, Apple</li>
             </ul>
@@ -53,19 +49,20 @@ export default class Contact extends React.Component {
           <div className='technology'>
             <h3>Tech Stack</h3>
             <ul className='tech-stack'>
-              <li>React</li>
-              <li>React Native</li>
-              <li>Node</li>
-              <li>Express</li>
               <li>Javascript</li>
-              <li>Shopify Liquid</li>
+              <li>React.js</li>
+              <li>Gatsby.js</li>
+              <li>Node.js</li>
+              <li>Express.js</li>
+              <li>Sanity CMS</li>
+              <li>Contentful CMS</li>
               <li>Sass</li>
               <li>PostgreSQL Database</li>
             </ul>
           </div>
         </section>
       </main>
-
-    )
-  }
+  )
 }
+
+export default Contact

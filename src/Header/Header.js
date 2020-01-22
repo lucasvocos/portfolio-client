@@ -31,10 +31,6 @@ export default class Header extends React.Component {
         <MediaQuery minWidth={1024}>
           <nav className='links'>
             <Link
-              to={`/work`}>
-              Featured
-            </Link>
-            <Link
               to={`/archive`}>
               Archive
             </Link>
@@ -56,11 +52,6 @@ export default class Header extends React.Component {
               <button className='mobile-menu-trigger' onClick={this.closeMenu}>Close</button>
             </header>
             <nav className='mobile-menu-links'>
-              <Link
-                onClick={this.closeMenu}
-                to={`/work`}>
-                Featured
-              </Link>
               <Link
                 onClick={this.closeMenu}
                 to={`/archive`}>

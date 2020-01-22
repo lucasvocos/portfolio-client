@@ -3,6 +3,7 @@
   flex-direction: column;
   font-size: 18px;
   padding: 10px 20px;
+  line-height: 1.5;
   h3 {
     font-weight: 500;
   }
@@ -19,14 +20,22 @@
     }
   }
   .contact-details {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    .contact-img {
+      order: 1;
+      @media (min-width: 1024px) {
+        order: 2;
+      }
+    }
 
     img {
       max-width: 100%;
       width: 100%;
-      padding: 25px 0;
+      margin: 0 auto 1rem;
       @media (min-width: 1024px) {
-        max-width: 66%;
-        margin: 0 auto;
+        margin: 2rem auto 0;
         padding: 0;
       }
     }

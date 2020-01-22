@@ -6,6 +6,7 @@
     margin-bottom: 2rem;
     max-width: 70ch;
     padding: 10px 20px;
+    line-height: 1.5;
     p {
       line-height: 1.125;
       margin: .5rem 0;
@@ -66,9 +67,22 @@
   @media (min-width: 1024px) {
     padding: 10px 20px;
     .intro-paragraph {
-      font-size: 1.75rem;
+      font-size: 2.5rem;
       margin-bottom: 4rem;
       padding: 0;
+      max-width: 85%;
+      p {
+        margin: 1.5rem 0;
+        a {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  @media (min-width: 1600px) {
+    .intro-paragraph {
+      font-size: 4rem;
+      max-width: 75%;
     }
   }
 }

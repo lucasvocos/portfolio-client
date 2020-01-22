@@ -85,7 +85,6 @@ export default class App extends React.Component{
               exact
               path={'/work/:project_name'}
               component={ProjectPage}
-
             />
             <Route
               exact
