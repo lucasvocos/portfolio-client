@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import './Contact.scss'
 import Image from './lucas.JPG'
-import { Link } from 'react-router-dom'
 
 const Contact = () => {
   useEffect(() => {

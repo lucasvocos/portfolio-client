@@ -48,7 +48,7 @@ export default class ProjectList extends React.Component {
           }
 
         } else {
-          return
+          return null
         }
 
       })
