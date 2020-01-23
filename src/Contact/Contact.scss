@@ -1,85 +1,57 @@
-.contact {
+.contact-page {
   display: flex;
   flex-direction: column;
-  font-size: 18px;
   padding: 10px 20px;
-  line-height: 1.5;
-  h3 {
-    font-weight: 500;
+  .title {
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+  .contact-details,
+  .contact-bio,
+  .contact-press-ed {
+    width: 100%;
+    aside {
+      padding-bottom: 1rem;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .title {
+      padding-bottom: .125rem;
+    }
+  }
+  .work {
+    li {
+      .year {
+        padding-right: 25px;
+        display: inline;
+      }
+      a {
+        text-decoration: underline;
+      }
+    }
+  }
+  p {
+    padding-bottom: .5rem;
+    line-height: 1.25;
   }
   @media (min-width: 1024px) {
     flex-direction: row;
-    font-size: 24px;
-    justify-content: space-between;
-  }
-  .contact-details,
-  .resume {
-    width: 100%;
-    @media (min-width: 1024px) {
-      width: calc(50% - 15px);
+    .contact-details,
+    .contact-bio,
+    .contact-press-ed {
+      padding-right: 25px;
     }
-  }
-  .contact-details {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-    .contact-img {
-      order: 1;
-      @media (min-width: 1024px) {
-        order: 2;
-      }
+    .contact-details {
+      width: 20vw;
     }
-
-    img {
-      max-width: 100%;
-      width: 100%;
-      margin: 0 auto 1rem;
-      @media (min-width: 1024px) {
-        margin: 2rem auto 0;
-        padding: 0;
-      }
+    .contact-bio {
+      width: 50vw;
     }
-  }
-  .resume {
-    .about-paragraph,
-    .list {
-      padding-bottom: 50px;
-    }
-    .about-paragraph {
-      display: none;
-      @media (min-width: 1024px) {
-        display: block;
-        p {
-          margin-bottom: .5em;
-          &:last-of-type {
-            margin-bottom: 0;
-          }
-        }
-      }
-    }
-    .list,
-    .technology {
-      h3 {
-        padding-bottom: 1rem;
-      }
-      ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        li {
-          border-bottom: 1px solid;
-          display: flex;
-          flex-direction: row;
-          padding: 5px 0;
-          .year {
-            min-width: 25%;
-            padding-right: 15px;
-          }
-          &:before {
-            content: '\200B';
-          }
-        }
-      }
+    .contact-press-ed {
+      width: 25vw;
     }
   }
 }
