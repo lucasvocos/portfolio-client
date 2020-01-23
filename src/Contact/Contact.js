@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import MediaQuery from 'react-responsive'
 import { Link } from 'react-router-dom'
 import './Contact.scss'
-import Image from './lucas.JPG'
+// import Image from './lucas.JPG'
 
 const Contact = () => {
   useEffect(() => {
