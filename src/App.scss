@@ -44,9 +44,11 @@ html {
     url("./font/4318c8c4-489b-40b6-a984-45a862c647f7.ttf") format("truetype");
 }
 
+html {
+  font-size: 15px;
+}
 body {
   font-family: 'FavoritBook', 'UntitledSansWeb-Regular', 'Helvetica Neue', 'Helvetica', sans-serif;
-  font-size: 14px;
   letter-spacing: -0.0125em;
   margin: 0;
 }
